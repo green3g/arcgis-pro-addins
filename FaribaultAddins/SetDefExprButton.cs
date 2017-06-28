@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using ArcGIS.Desktop.Framework;
 using ArcGIS.Desktop.Framework.Contracts;
 using ArcGIS.Desktop.Mapping;
 using ArcGIS.Desktop.Framework.Threading.Tasks;
@@ -14,7 +10,7 @@ namespace FaribaultAddins
     {
         protected override void OnClick()
         {
-            FeatureLayer layer = (FeatureLayer)MapView.Active.GetSelectedLayers().OfType<FeatureLayer>().FirstOrDefault();
+            FeatureLayer layer = MapView.Active.GetSelectedLayers().OfType<FeatureLayer>().FirstOrDefault();
             this.SetDefinitionQueryAsync(layer);
             
         }

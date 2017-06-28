@@ -92,29 +92,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClearDefExprButton.cs" />
+    <Compile Include="OpenStreetviewTool.cs" />
     <Compile Include="SetDefExprButton.cs" />
     <Compile Include="Faribault.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AddInContent Include="Images\GenericButtonBlue16.png" />
+    <AddInContent Include="Images\streetview.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\filter_apply.png" />
-    <Resource Include="Images\filter_clear.png" />
+    <AddInContent Include="DarkImages\streetview.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="DarkImages\filter_apply.png" />
-    <Resource Include="DarkImages\filter_clear.png" />
+    <AddInContent Include="Images\streetview16.png" />
   </ItemGroup>
   <ItemGroup>
-    <AddInContent Include="Images\GenericButtonBlue32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AddInContent Include="DarkImages\GenericButtonBlue16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AddInContent Include="DarkImages\GenericButtonBlue32.png" />
+    <AddInContent Include="DarkImages\streetview16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!--

@@ -13,31 +13,36 @@
   <modules>
     <insertModule id="FaribaultAddins_Module" className="Faribault" autoLoad="true" caption="Faribault Addins">
       <groups>
-        <group condition="esri_mapping_queryDefSupportedLayersSelectedCondition" id="FaribaultAddins_FilterGroup" caption="Filter">
+        <group id="FaribaultAddins_FilterGroup" caption="Filter" keytip="FaribaultAddins_FilterGroup">
           <button refID="FaribaultAddins_SetDefExprButton" size="large" />
           <button refID="FaribaultAddins_ClearDefExprButton" size="large" />
         </group>
       </groups>
-
       <controls>
         <!-- add your controls here -->
-        <button id="FaribaultAddins_SetDefExprButton" caption="Filter Selected" className="SetDefExprButton" loadOnClick="true" 
-                condition="esri_mapping_activeMapView_hasFeatureSelectionCondition"
-                smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/Filter16.png" 
-                largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/Filter32.png">
+        <button id="FaribaultAddins_SetDefExprButton" caption="Filter Selected" className="SetDefExprButton" loadOnClick="true" condition="esri_mapping_activeMapView_hasFeatureSelectionCondition" keytip="FaribaultAddins_SetDefExprButton" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/Filter16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/Filter32.png">
           <tooltip heading="Filter Selected">Filter the selected layer to show only the selected features
-          <disabledText>No features are selected</disabledText>
-        </tooltip>
+          <disabledText>No features are selected</disabledText></tooltip>
         </button>
-        <button id="FaribaultAddins_ClearDefExprButton" caption="Clear Filter" className="ClearDefExprButton" loadOnClick="true" 
-                smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/SelectionClearSelected16.png" 
-                largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/SelectionClearSelected32.png">
+        <button id="FaribaultAddins_ClearDefExprButton" caption="Clear Filter" className="ClearDefExprButton" loadOnClick="true" condition="esri_mapping_queryDefSupportedLayersSelectedCondition" keytip="FaribaultAddins_ClearDefExprButton" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/SelectionClearSelected16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/SelectionClearSelected32.png">
           <tooltip heading="Clear Filter">Clear any filters on selected layer
         </tooltip>
         </button>
+        <tool id="FaribaultAddins_OpenStreetviewTool" caption="Google Streetview" className="OpenStreetviewTool" 
+              loadOnClick="true" 
+              smallImage="Images\streetview16.png" 
+              largeImage="Images\streetview.png" 
+              condition="esri_mapping_mapPane">
+          <tooltip heading="Google Streetview">Opens Google Streetview when the map is clicked.<disabledText /></tooltip>
+        </tool>
       </controls>
     </insertModule>
     <updateModule refID="esri_mapping">
+      <groups>
+        <updateGroup refID="esri_mapping_navigateGroup">
+          <insertTool refID="FaribaultAddins_OpenStreetviewTool" size="large" />
+      </updateGroup>
+      </groups>
       <tabs>
         <updateTab refID="esri_mapping_homeTab">
           <insertGroup refID="FaribaultAddins_FilterGroup" insert="after" />
