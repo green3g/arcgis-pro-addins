@@ -1,12 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ArcGIS defaultAssembly="FaribaultAddins.dll"
-        defaultNamespace="FaribaultAddins"
-        xmlns="http://schemas.esri.com/DADF/Registry"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
-
+﻿<ArcGIS defaultAssembly="FaribaultAddins.dll" defaultNamespace="FaribaultAddins" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
   <AddInInfo id="{7e497630-98ec-4355-a32b-4cedc42f008d}" version="1.0" desktopVersion="2.0.8933">
-    <Name>FaribaultAddins</Name>   
+    <Name>FaribaultAddins</Name>
     <Description>FaribaultAddins description</Description>
     <Image>Images\AddinDesktop32.png</Image>
     <Author>groemhildt</Author>
@@ -16,28 +10,39 @@
     <!-- Note subject can be one or more of these topics:
                     Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
   </AddInInfo>
-
   <modules>
-    <insertModule id="FaribaultAddins_Module" className="Module1" autoLoad="false" caption="Module1">
-      <!-- uncomment to have the control hosted on a separate tab-->
-      <tabs>
-        <!--<tab id="FaribaultAddins_Tab1" caption="New Tab">
-          <group refID="FaribaultAddins_Group1"/>
-        </tab>-->
-      </tabs>
-              
+    <insertModule id="FaribaultAddins_Module" className="Faribault" autoLoad="true" caption="Faribault Addins">
       <groups>
-        <!-- comment this out if you have no controls on the Addin tab to avoid
-              an empty group-->
-        <group id="FaribaultAddins_Group1" caption="Group 1" appearsOnAddInTab="true">
-          <!-- host controls within groups -->
+        <group condition="esri_mapping_queryDefSupportedLayersSelectedCondition" id="FaribaultAddins_FilterGroup" caption="Filter">
+          <button refID="FaribaultAddins_SetDefExprButton" size="large" />
+          <button refID="FaribaultAddins_ClearDefExprButton" size="large" />
         </group>
       </groups>
-      
+
       <controls>
         <!-- add your controls here -->
-      </controls> 
-      
+        <button id="FaribaultAddins_SetDefExprButton" caption="Filter Selected" className="SetDefExprButton" loadOnClick="true" 
+                condition="esri_mapping_activeMapView_hasFeatureSelectionCondition"
+                smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/Filter16.png" 
+                largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/Filter32.png">
+          <tooltip heading="Filter Selected">Filter the selected layer to show only the selected features
+          <disabledText>No features are selected</disabledText>
+        </tooltip>
+        </button>
+        <button id="FaribaultAddins_ClearDefExprButton" caption="Clear Filter" className="ClearDefExprButton" loadOnClick="true" 
+                smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/SelectionClearSelected16.png" 
+                largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/SelectionClearSelected32.png">
+          <tooltip heading="Clear Filter">Clear any filters on selected layer
+        </tooltip>
+        </button>
+      </controls>
     </insertModule>
+    <updateModule refID="esri_mapping">
+      <tabs>
+        <updateTab refID="esri_mapping_homeTab">
+          <insertGroup refID="FaribaultAddins_FilterGroup" insert="after" />
+        </updateTab>
+      </tabs>
+    </updateModule>
   </modules>
 </ArcGIS>

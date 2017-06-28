@@ -89,14 +89,32 @@
   </ItemGroup>
   <ItemGroup>
     <AddInContent Include="Config.daml" />
-    <AddInContent Include="Images\AddInDesktop16.png" />
-    <AddInContent Include="Images\AddInDesktop32.png" />
-    <AddInContent Include="DarkImages\AddInDesktop16.png" />
-    <AddInContent Include="DarkImages\AddInDesktop32.png" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module1.cs" />
+    <Compile Include="ClearDefExprButton.cs" />
+    <Compile Include="SetDefExprButton.cs" />
+    <Compile Include="Faribault.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\GenericButtonBlue16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\filter_apply.png" />
+    <Resource Include="Images\filter_clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DarkImages\filter_apply.png" />
+    <Resource Include="DarkImages\filter_clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\GenericButtonBlue32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="DarkImages\GenericButtonBlue16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="DarkImages\GenericButtonBlue32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!--

@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace FaribaultAddins
 {
-    internal class Module1 : Module
+    internal class Faribault : Module
     {
-        private static Module1 _this = null;
+        private static Faribault _this = null;
 
         /// <summary>
         /// Retrieve the singleton instance to this module here
         /// </summary>
-        public static Module1 Current
+        public static Faribault Current
         {
             get
             {
-                return _this ?? (_this = (Module1)FrameworkApplication.FindModule("FaribaultAddins_Module"));
+                return _this ?? (_this = (Faribault)FrameworkApplication.FindModule("FaribaultAddins_Module"));
             }
         }
 
