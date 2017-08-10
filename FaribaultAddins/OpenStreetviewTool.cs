@@ -18,9 +18,13 @@ namespace FaribaultAddins
         {
             return QueuedTask.Run(() =>
             {
-                //Convert the clicked point in client coordinates to the corresponding map coordinates.
+                // Convert the clicked point in client coordinates to the corresponding map coordinates.
                 MapPoint mapPoint = MapView.Active.ClientToMap(e.ClientPoint);
+                
+                // convert to lon/lat
                 MapPoint coords = (MapPoint)GeometryEngine.Instance.Project(mapPoint, SpatialReferences.WGS84);
+
+                // open a web browser
                 string url = string.Format("http://maps.google.com/?cbll={0},{1}&cbp=12,90,0,0,5&layer=c", coords.Y, coords.X);
                 Process.Start(url);
             });
