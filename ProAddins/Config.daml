@@ -1,0 +1,53 @@
+﻿<ArcGIS defaultAssembly="ProAddins.dll" defaultNamespace="ProAddins" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
+  <AddInInfo id="{7e497630-98ec-4355-a32b-4cedc42f008d}" version="1.0" desktopVersion="2.0.8933">
+    <Name>ProAddins</Name>
+    <Description>ProAddins description</Description>
+    <Image>Images\AddinDesktop32.png</Image>
+    <Author>groemhildt</Author>
+    <Company>Microsoft</Company>
+    <Date>6/28/2017 7:46:28 AM, 2017</Date>
+    <Subject>Framework</Subject>
+    <!-- Note subject can be one or more of these topics:
+                    Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
+  </AddInInfo>
+  <modules>
+    <insertModule id="ProAddins_Module" className="Pro" autoLoad="true" caption="Pro Addins">
+      <groups>
+        <group id="ProAddins_FilterGroup" caption="Filter" keytip="ProAddins_FilterGroup">
+          <button refID="ProAddins_SetDefExprButton" size="large" />
+          <button refID="ProAddins_ClearDefExprButton" size="large" />
+        </group>
+      </groups>
+      <controls>
+        <!-- add your controls here -->
+        <button id="ProAddins_SetDefExprButton" caption="Filter Selected" className="SetDefExprButton" loadOnClick="true" condition="esri_mapping_activeMapView_hasFeatureSelectionCondition" keytip="ProAddins_SetDefExprButton" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/Filter16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/Filter32.png">
+          <tooltip heading="Filter Selected">Filter the selected layer to show only the selected features
+          <disabledText>No features are selected</disabledText></tooltip>
+        </button>
+        <button id="ProAddins_ClearDefExprButton" caption="Clear Filter" className="ClearDefExprButton" loadOnClick="true" condition="esri_mapping_queryDefSupportedLayersSelectedCondition" keytip="ProAddins_ClearDefExprButton" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/SelectionClearSelected16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/SelectionClearSelected32.png">
+          <tooltip heading="Clear Filter">Clear any filters on selected layer
+        </tooltip>
+        </button>
+        <tool id="ProAddins_OpenStreetviewTool" caption="Google Streetview" className="OpenStreetviewTool" loadOnClick="true" smallImage="Images\streetview16.png" largeImage="Images\streetview.png" condition="esri_mapping_mapPane">
+          <tooltip heading="Google Streetview">Opens Google Streetview when the map is clicked.<disabledText /></tooltip>
+        </tool>
+        <tool id="ProAddins_BeaconButton" caption="Beacon" className="BeaconButton" loadOnClick="true" smallImage="Images\Beacon.png" largeImage="Images\Beacon.png">
+          <tooltip heading="Rice County Beacon">Opens Beacon when you click on a parcel<disabledText /></tooltip>
+        </tool>
+      </controls>
+    </insertModule>
+    <updateModule refID="esri_mapping">
+      <groups>
+        <updateGroup refID="esri_mapping_navigateGroup">
+          <insertTool refID="ProAddins_OpenStreetviewTool" size="large" />
+          <insertTool refID="ProAddins_BeaconButton" size="large" />
+        </updateGroup>
+      </groups>
+      <tabs>
+        <updateTab refID="esri_mapping_homeTab">
+          <insertGroup refID="ProAddins_FilterGroup" insert="after" />
+        </updateTab>
+      </tabs>
+    </updateModule>
+  </modules>
+</ArcGIS>

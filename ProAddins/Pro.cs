@@ -1,20 +1,20 @@
 ﻿using ArcGIS.Desktop.Framework;
 using ArcGIS.Desktop.Framework.Contracts;
 
-namespace FaribaultAddins
+namespace ProAddins
 {
-    internal class Faribault : Module
+    internal class Pro : Module
     {
-        private static Faribault _this = null;
+        private static Pro _this = null;
 
         /// <summary>
         /// Retrieve the singleton instance to this module here
         /// </summary>
-        public static Faribault Current
+        public static Pro Current
         {
             get
             {
-                return _this ?? (_this = (Faribault)FrameworkApplication.FindModule("FaribaultAddins_Module"));
+                return _this ?? (_this = (Pro)FrameworkApplication.FindModule("ProAddins_Module"));
             }
         }
 

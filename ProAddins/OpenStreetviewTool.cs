@@ -4,7 +4,7 @@ using ArcGIS.Desktop.Mapping;
 using ArcGIS.Desktop.Framework.Threading.Tasks;
 using ArcGIS.Core.Geometry;
 
-namespace FaribaultAddins
+namespace ProAddins
 {
     internal class OpenStreetviewTool : MapTool
     {

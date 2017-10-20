@@ -4,7 +4,7 @@ using ArcGIS.Desktop.Framework.Contracts;
 using ArcGIS.Desktop.Mapping;
 using ArcGIS.Desktop.Framework.Threading.Tasks;
 
-namespace FaribaultAddins
+namespace ProAddins
 {
     internal class ClearDefExprButton : Button
     {

@@ -5,7 +5,7 @@ using ArcGIS.Desktop.Mapping;
 using ArcGIS.Desktop.Framework.Threading.Tasks;
 using System.Windows;
 
-namespace FaribaultAddins
+namespace ProAddins
 {
     // a button to set definition expressions on a layer to the selected feature ids
     // usage: 

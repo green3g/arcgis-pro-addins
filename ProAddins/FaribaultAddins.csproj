@@ -97,7 +97,7 @@
     <Compile Include="ClearDefExprButton.cs" />
     <Compile Include="OpenStreetviewTool.cs" />
     <Compile Include="SetDefExprButton.cs" />
-    <Compile Include="Faribault.cs" />
+    <Compile Include="Pro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

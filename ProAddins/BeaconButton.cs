@@ -9,7 +9,7 @@ using System;
 using ArcGIS.Desktop.Framework.Dialogs;
 
 
-namespace FaribaultAddins
+namespace ProAddins
 {
     internal class BeaconButton : MapTool
     {
