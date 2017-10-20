@@ -88,9 +88,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <AddInContent Include="Config.daml" />
+    <AddInContent Include="Config.daml">
+      <SubType>Designer</SubType>
+    </AddInContent>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BeaconButton.cs" />
     <Compile Include="ClearDefExprButton.cs" />
     <Compile Include="OpenStreetviewTool.cs" />
     <Compile Include="SetDefExprButton.cs" />
@@ -108,6 +111,12 @@
   </ItemGroup>
   <ItemGroup>
     <AddInContent Include="DarkImages\streetview16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="DarkImages\Beacon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\Beacon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!--

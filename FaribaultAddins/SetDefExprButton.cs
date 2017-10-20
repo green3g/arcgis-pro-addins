@@ -3,9 +3,15 @@ using System.Threading.Tasks;
 using ArcGIS.Desktop.Framework.Contracts;
 using ArcGIS.Desktop.Mapping;
 using ArcGIS.Desktop.Framework.Threading.Tasks;
+using System.Windows;
 
 namespace FaribaultAddins
 {
+    // a button to set definition expressions on a layer to the selected feature ids
+    // usage: 
+    //      1. select features
+    //      2. select layer in the table of contents
+    //      3. click button
     internal class SetDefExprButton : Button
     {
         protected override void OnClick()
