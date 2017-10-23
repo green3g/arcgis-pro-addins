@@ -17,4 +17,4 @@ Buttons to set a definition expression on a layer to the selected features. Simi
 
 ## Beacon Button
 
-Opens up the parcel viewer application - Beacon on the clicked parcel. Beacon is a widely used software for sharing parcel data.
+Opens up the parcel viewer application - Beacon on the clicked parcel. [Beacon](https://beacon.schneidercorp.com/) is a widely used software for sharing parcel data.
