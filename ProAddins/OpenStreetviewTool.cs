@@ -3,6 +3,7 @@ using System.Diagnostics;
 using ArcGIS.Desktop.Mapping;
 using ArcGIS.Desktop.Framework.Threading.Tasks;
 using ArcGIS.Core.Geometry;
+using System.Globalization;
 
 namespace ProAddins
 {
@@ -25,7 +26,8 @@ namespace ProAddins
                 MapPoint coords = (MapPoint)GeometryEngine.Instance.Project(mapPoint, SpatialReferences.WGS84);
 
                 // open a web browser
-                string url = string.Format("http://maps.google.com/?cbll={0},{1}&cbp=12,90,0,0,5&layer=c", coords.Y, coords.X);
+                CultureInfo culture = new CultureInfo("en-US");
+                string url = string.Format("http://maps.google.com/?cbll={0},{1}&cbp=12,90,0,0,5&layer=c", coords.Y.ToString(culture), coords.X.ToString(culture));
                 Process.Start(url);
             });
         }
