@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ProAddins" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ParcelURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://beacon.schneidercorp.com/Application.aspx?AppID=74&amp;LayerID=590&amp;PageTypeID=4&amp;PageID=504&amp;KeyValue={0}</Value>
+    </Setting>
+    <Setting Name="ParcelLayer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Parcel Boundaries</Value>
+    </Setting>
+    <Setting Name="ParcelIDField" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PARCELID</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

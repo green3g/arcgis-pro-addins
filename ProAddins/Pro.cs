@@ -6,6 +6,7 @@ namespace ProAddins
     internal class Pro : Module
     {
         private static Pro _this = null;
+        private static Settings _settings = Settings.Default;
 
         /// <summary>
         /// Retrieve the singleton instance to this module here
@@ -16,6 +17,11 @@ namespace ProAddins
             {
                 return _this ?? (_this = (Pro)FrameworkApplication.FindModule("ProAddins_Module"));
             }
+        }
+
+        public static Settings settings
+        {
+            get { return _settings; }
         }
 
         #region Overrides

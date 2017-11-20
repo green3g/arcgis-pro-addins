@@ -1,5 +1,5 @@
 ﻿<ArcGIS defaultAssembly="ProAddins.dll" defaultNamespace="ProAddins" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
-  <AddInInfo id="{7e497630-98ec-4355-a32b-4cedc42f008d}" version="1.0" desktopVersion="2.0.8933">
+  <AddInInfo id="{7e497630-98ec-4355-a32b-4cedc42f008d}" version="1.0.1" desktopVersion="2.0.8933">
     <Name>ProAddins</Name>
     <Description>ProAddins description</Description>
     <Image>Images\AddinDesktop32.png</Image>
@@ -31,8 +31,8 @@
         <tool id="ProAddins_OpenStreetviewTool" caption="Google Streetview" className="OpenStreetviewTool" loadOnClick="true" smallImage="Images\streetview16.png" largeImage="Images\streetview.png" condition="esri_mapping_mapPane">
           <tooltip heading="Google Streetview">Opens Google Streetview when the map is clicked.<disabledText /></tooltip>
         </tool>
-        <tool id="ProAddins_BeaconButton" caption="Beacon" className="BeaconButton" loadOnClick="true" smallImage="Images\Beacon.png" largeImage="Images\Beacon.png"  condition="esri_mapping_mapPane">
-          <tooltip heading="Rice County Beacon">Opens Beacon when you click on a parcel<disabledText /></tooltip>
+        <tool id="ProAddins_ExternalViewerButton" caption="Open Viewer" className="ExternalViewerButton" loadOnClick="true" smallImage="Images\home.png" largeImage="Images\home.png" condition="esri_mapping_mapPane">
+          <tooltip heading="Parcel Viewer">Opens Parcel Viewer Application when you click on a parcel<disabledText /></tooltip>
         </tool>
       </controls>
     </insertModule>
@@ -40,7 +40,7 @@
       <groups>
         <updateGroup refID="esri_mapping_navigateGroup">
           <insertTool refID="ProAddins_OpenStreetviewTool" size="large" />
-          <insertTool refID="ProAddins_BeaconButton" size="large" />
+          <insertTool refID="ProAddins_ExternalViewerButton" size="large" />
         </updateGroup>
       </groups>
       <tabs>
@@ -50,4 +50,11 @@
       </tabs>
     </updateModule>
   </modules>
+  <propertySheets>
+    <updateSheet refID="esri_core_optionsPropertySheet">
+      <insertPage id="ProAddins_ExternalViewerSettingsView" caption="Viewer Settings" className="ExternalViewerSettingsViewModel" group="Application">
+        <content className="ExternalViewerSettingsView" />
+      </insertPage>
+    </updateSheet>
+  </propertySheets>
 </ArcGIS>
