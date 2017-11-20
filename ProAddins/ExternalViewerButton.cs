@@ -26,7 +26,7 @@ namespace ProAddins
                 IReadOnlyList<Layer> layerList = MapView.Active.Map.FindLayers(Pro.settings.ParcelLayer, true);
                 if(layerList.Count == 0)
                 {
-                    MessageBox.Show(string.Format("There must be a layer named '{0}' in order to open ExternalViewer. This can be configured in the Options", Pro.settings.ParcelIDField));
+                    MessageBox.Show(string.Format("There must be a layer named '{0}' in order to open ExternalViewer. This can be configured in the Options", Pro.settings.ParcelLayer));
                     return;
                 }
 
