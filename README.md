@@ -15,6 +15,6 @@ Buttons to set a definition expression on a layer to the selected features. Simi
 
 ![Definition Expression Button](./images/select.gif)
 
-## Beacon Button
+## External Viewer Button
 
-Opens up the parcel viewer application - Beacon on the clicked parcel. [Beacon](https://beacon.schneidercorp.com/) is a widely used software for sharing parcel data.
+A configureable button that allows a user to open an external application using an ID property and a url. The addin is configured to allow the user to modify the external url, layer name, and id property. By default, the addin is configured to allow opening Beacon, a well known parcel viewer using the layer "Parcel Boundaries" and the id property "PARCELID".
