@@ -1,5 +1,5 @@
 ﻿<ArcGIS defaultAssembly="ProAddins.dll" defaultNamespace="ProAddins" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
-  <AddInInfo id="{7e497630-98ec-4355-a32b-4cedc42f008d}" version="2.1.0" desktopVersion="2.0.8933">
+  <AddInInfo id="{7e497630-98ec-4355-a32b-4cedc42f008d}" version="2.1.1" desktopVersion="2.0.8933">
     <Name>ProAddins</Name>
     <Description>ProAddins description</Description>
     <Image>Images\AddinDesktop32.png</Image>
