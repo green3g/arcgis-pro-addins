@@ -14,6 +14,11 @@ namespace ProAddins
             if (layer == null) return;
             this.SetDefinitionQueryAsync(layer);
         }
+
+        // <summary>
+        // sets the definition query on a layer asynchronously
+        // </summary>
+        //
         protected Task SetDefinitionQueryAsync(FeatureLayer layer)
         {
             return QueuedTask.Run(() =>
