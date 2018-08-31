@@ -3,6 +3,8 @@ Pro Addins
 
 A collection of ArcGIS Pro buttons bundled into an addin.
 
+**Note: when running pro, you will see an update notification every time. This is harmless and will be resolved in a future release.**
+
 ## Streetview
 
 Open Google streetview on a map click point
@@ -25,3 +27,6 @@ This button is configurable and the following can be provided using the Pro Opti
  - Layer ID Field: The field name to query in the selected feature
  - Layer Name: The name of the layer to query in the map
 
+## Credits:
+
+[Pro evergreen](https://github.com/steveoh/pro-evergreen) - Auto update functionality
