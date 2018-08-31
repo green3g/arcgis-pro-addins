@@ -3,8 +3,6 @@ Pro Addins
 
 A collection of ArcGIS Pro buttons bundled into an addin.
 
-**Note: when running pro, you will see an update notification every time. This is harmless and will be resolved in a future release.**
-
 ## Streetview
 
 Open Google streetview on a map click point
