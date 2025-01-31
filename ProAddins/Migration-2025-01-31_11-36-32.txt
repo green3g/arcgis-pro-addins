@@ -1,0 +1,11 @@
+Migration Status Report
+  Migrate project: C:\Repos\ArcGIS\ProAddins\arcgis-pro-addins\ProAddins\ProAddins.csproj
+  ProAddins.csproj
+   project folder: 
+   C:\Repos\ArcGIS\ProAddins\arcgis-pro-addins\ProAddins\
+   C:\Repos\ArcGIS\ProAddins\arcgis-pro-addins\ProAddins\
+   language: CS
+   project type: AddIn
+   project has WPF: PresentationFramework
+   Note: project might contain NuGets in packages.config, please check all NuGets for the most up-to-date .NET variant and if needed, replace with a NuGet that supports .NET 6.
+   Note: please check all NuGets for the most up-to-date .NET variant and if needed, replace with a NuGet that supports .NET 6.

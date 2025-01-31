@@ -12,7 +12,7 @@ namespace ProAddins {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.12.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,8 +25,8 @@ namespace ProAddins {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://ExternalViewer.schneidercorp.com/Application.aspx?AppID=74&LayerID=590&Pa" +
-            "geTypeID=4&PageID=504&KeyValue={0}")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://beacon.schneidercorp.com/Application.aspx?AppID=74&LayerID=590&PageTypeID" +
+            "=4&PageID=504&KeyValue={0}")]
         public string ParcelURL {
             get {
                 return ((string)(this["ParcelURL"]));
@@ -57,6 +57,21 @@ namespace ProAddins {
             }
             set {
                 this["ParcelIDField"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ViewerEnabled
+        {
+            get
+            {
+                return ((bool)(this["ViewerEnabled"]));
+            }
+            set
+            {
+                this["ViewerEnabled"] = value;
             }
         }
     }

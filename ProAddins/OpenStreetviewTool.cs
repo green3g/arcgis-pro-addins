@@ -27,8 +27,13 @@ namespace ProAddins
 
                 // open a web browser
                 CultureInfo culture = new CultureInfo("en-US");
-                string url = string.Format("http://maps.google.com/?cbll={0},{1}&cbp=12,90,0,0,5&layer=c", coords.Y.ToString(culture), coords.X.ToString(culture));
-                Process.Start(url);
+                string url = string.Format("https://www.google.com/maps/@?api=1&map_action=pano&viewpoint={0}%2C{1}", coords.Y.ToString(culture), coords.X.ToString(culture));
+                //string url = string.Format("http://maps.google.com/?cbll={0},{1}&cbp=12,90,0,0,5&layer=c", coords.Y.ToString(culture), coords.X.ToString(culture));
+                Process process = Process.Start(new ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true
+                });
             });
         }
     }
