@@ -18,11 +18,14 @@
     <Grid Margin="0,0,0,187">
         <Grid.RowDefinitions>
         </Grid.RowDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="10,16,0,0" Text="App URL:" VerticalAlignment="Top" Style="{DynamicResource Esri_TextBlockDialog}"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,44,0,0" Text="Layer ID Field:" VerticalAlignment="Top" Style="{DynamicResource Esri_TextBlockDialog}"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,72,0,0" Text="Layer Name:" VerticalAlignment="Top" Style="{DynamicResource Esri_TextBlockDialog}"/>
-        <TextBox HorizontalAlignment="Left" Margin="131,10,0,0" ToolTip="The external app url" Text="{Binding Path=ParcelURL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="159"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,37,0,0" ToolTip="The query layer ID field (to use in the url)" TextWrapping="Wrap" Text="{Binding Path=ParcelIDField, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="159"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,65,0,0" ToolTip="The name layer to query" TextWrapping="Wrap" Text="{Binding Path=ParcelLayer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="159"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="6,31,0,0" Text="App URL:" VerticalAlignment="Top" Style="{DynamicResource Esri_TextBlockDialog}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="6,57,0,0" Text="Layer ID Field:" VerticalAlignment="Top" Style="{DynamicResource Esri_TextBlockDialog}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="6,85,0,0" Text="Layer Name:" VerticalAlignment="Top" Style="{DynamicResource Esri_TextBlockDialog}"/>
+        <CheckBox HorizontalAlignment="Left" Margin="6,9,278,0" VerticalAlignment="Top" IsThreeState="False"  IsChecked="{Binding Path=ViewerEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox x:Name="tbURL" HorizontalAlignment="Left" Margin="131,30,0,0" ToolTip="The external app url" Text="{Binding Path=ParcelURL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="159"/>
+        <TextBox x:Name="tbLayerIDField" HorizontalAlignment="Left" Height="23" Margin="131,53,0,0" ToolTip="The query layer ID field (to use in the url)" TextWrapping="Wrap" Text="{Binding Path=ParcelIDField, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="159"/>
+        <TextBox x:Name="tbLayerName" HorizontalAlignment="Left" Height="23" Margin="131,81,0,0" ToolTip="The name layer to query" TextWrapping="Wrap" Text="{Binding Path=ParcelLayer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="159"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,9,0,0" Text="Enabled" VerticalAlignment="Top" Style="{DynamicResource Esri_TextBlockDialog}"/>
     </Grid>
 </UserControl>

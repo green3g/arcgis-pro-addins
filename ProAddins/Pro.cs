@@ -1,9 +1,9 @@
 ﻿using ArcGIS.Desktop.Framework;
 using ArcGIS.Desktop.Framework.Contracts;
-using ProEvergreen;
-using Octokit;
-using ArcGIS.Desktop.Framework.Threading.Tasks;
-using System.Threading.Tasks;
+using ArcGIS.Desktop.Core;
+using ArcGIS.Desktop.Core.Events;
+using ArcGIS.Desktop.Framework.Dialogs;
+using System.Windows;
 
 namespace ProAddins
 {
@@ -28,29 +28,7 @@ namespace ProAddins
             get { return _settings; }
         }
 
-        /// <summary>
-        /// Called when the addin initializes to check for updates and download the latest
-        /// </summary>
-        /// <returns>Task</returns>
-        public static Task RunAsyncUpdateCheck()
-        {
-            return QueuedTask.Run(async () => { 
-
-                // check current release and update it if there's a newer version
-                var evergreen = new Evergreen("roemhildtg", "arcgis-pro-addins");
-                VersionInformation currentVersion = evergreen.GetCurrentAddInVersion();
-                Release latestVersion = await evergreen.GetLatestReleaseFromGithub();
-                if (!evergreen.IsCurrent(currentVersion.AddInVersion, latestVersion))
-                {
-                    await evergreen.Update(latestVersion);
-                    var notify = new ArcGIS.Desktop.Framework.Notification();
-                    notify.Title = "Addin Update";
-                    notify.Message = string.Format("Your pro-addins have been updated to version {0}. Please restart Pro to complete the update.", latestVersion.TagName);
-                    FrameworkApplication.AddNotification(notify);
-                }
-
-            });
-        }
+      
 
         #region Overrides
         /// <summary>
@@ -64,13 +42,32 @@ namespace ProAddins
             return true;
         }
 
-        protected override bool Initialize()
+        protected override bool Initialize() //Called when the Module is initialized.      
         {
-            RunAsyncUpdateCheck();
-            return true;
+            ProjectOpenedEvent.Subscribe(OnProjectOpened); //subscribe to Project opened event          
+            return base.Initialize();
         }
+
+        private void OnProjectOpened(ProjectEventArgs obj) //Project Opened event handler      
+        {
+            if (Pro.settings.ViewerEnabled)
+            {
+                FrameworkApplication.State.Activate("viewer_state");
+            } else
+            {
+                FrameworkApplication.State.Deactivate("viewer_state");
+            }
+        }
+
+        protected override void Uninitialize() //unsubscribe to the project opened event      
+        {
+            ProjectOpenedEvent.Unsubscribe(OnProjectOpened); //unsubscribe          
+            return;
+        }
+
 
         #endregion Overrides
 
+  
     }
 }

@@ -13,6 +13,9 @@ namespace ProAddins
         private string _parcelLayer;
         private string _parcelIDField;
         private string _originalParcelIDField;
+        private bool _originalViewerEnabled;
+        private bool _viewerEnabled;
+
 
         #endregion Private Properties 
 
@@ -47,6 +50,15 @@ namespace ProAddins
             }
         }
 
+        public bool ViewerEnabled
+        {
+            get { return _viewerEnabled; }
+            set
+            {
+                if (SetProperty(ref _viewerEnabled, value, () => ViewerEnabled))
+                    base.IsModified = true;
+            }
+        }
 
         private bool IsDirty()
         {
@@ -61,6 +73,11 @@ namespace ProAddins
             }
 
             if(_originalParcelIDField != ParcelIDField)
+            {
+                return true;
+            }
+
+            if (_originalViewerEnabled != ViewerEnabled)
             {
                 return true;
             }
@@ -86,6 +103,7 @@ namespace ProAddins
                 Pro.settings.ParcelURL = ParcelURL;
                 Pro.settings.ParcelLayer = ParcelLayer;
                 Pro.settings.ParcelIDField = ParcelIDField;
+                Pro.settings.ViewerEnabled = ViewerEnabled;
 
                 Pro.settings.Save();
             }
@@ -104,11 +122,13 @@ namespace ProAddins
             _parcelURL = Pro.settings.ParcelURL;
             _parcelLayer = Pro.settings.ParcelLayer;
             _parcelIDField = Pro.settings.ParcelIDField;
+            _viewerEnabled = Pro.settings.ViewerEnabled;
 
             // keep track of original values
             _originalParcelURL = ParcelURL;
             _originalParcelLayer = ParcelLayer;
             _originalParcelIDField = ParcelIDField;
+            _originalViewerEnabled = ViewerEnabled;
 
             return Task.FromResult(0);
         }

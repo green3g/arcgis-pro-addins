@@ -1,5 +1,6 @@
-﻿<ArcGIS defaultAssembly="ProAddins.dll" defaultNamespace="ProAddins" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
-  <AddInInfo id="{7e497630-98ec-4355-a32b-4cedc42f008d}" version="2.1.1" desktopVersion="2.0.8933">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArcGIS defaultAssembly="ProAddins.dll" defaultNamespace="ProAddins" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
+  <AddInInfo id="{7e497630-98ec-4355-a32b-4cedc42f008d}" version="2.1.1" desktopVersion="3.3.52636">
     <Name>ProAddins</Name>
     <Description>ProAddins description</Description>
     <Image>Images\AddinDesktop32.png</Image>
@@ -10,12 +11,24 @@
     <!-- Note subject can be one or more of these topics:
                     Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
   </AddInInfo>
+  
+  <conditions>
+    <insertCondition id="viewer_condition" caption="Viewer condition">
+      <and>
+        <state id="esri_mapping_mapPane"/>
+        <state id="viewer_state"/>
+      </and>
+    </insertCondition>
+  </conditions>
   <modules>
     <insertModule id="ProAddins_Module" className="Pro" autoLoad="true" caption="Pro Addins">
       <groups>
         <group id="ProAddins_FilterGroup" caption="Filter" keytip="ProAddins_FilterGroup">
           <button refID="ProAddins_SetDefExprButton" size="large" />
           <button refID="ProAddins_ClearDefExprButton" size="large" />
+        </group>
+        <group id="ProAddins_ViewerGroup" caption="Open external viewer" keytip="ProAddins_ViewerGroup" condition="viewer_state">
+          <button refID="ProAddins_ExternalViewerButton" size="large"/>
         </group>
       </groups>
       <controls>
@@ -31,7 +44,7 @@
         <tool id="ProAddins_OpenStreetviewTool" caption="Google Streetview" className="OpenStreetviewTool" loadOnClick="true" smallImage="Images\streetview16.png" largeImage="Images\streetview.png" condition="esri_mapping_mapPane">
           <tooltip heading="Google Streetview">Opens Google Streetview when the map is clicked.<disabledText /></tooltip>
         </tool>
-        <tool id="ProAddins_ExternalViewerButton" caption="Open Viewer" className="ExternalViewerButton" loadOnClick="true" smallImage="Images\home.png" largeImage="Images\home.png" condition="esri_mapping_mapPane">
+        <tool id="ProAddins_ExternalViewerButton" caption="Open Viewer" className="ExternalViewerButton" loadOnClick="true" smallImage="Images\home.png" largeImage="Images\home.png" condition="viewer_condition">
           <tooltip heading="Parcel Viewer">Opens Parcel Viewer Application when you click on a parcel<disabledText /></tooltip>
         </tool>
       </controls>
@@ -40,12 +53,12 @@
       <groups>
         <updateGroup refID="esri_mapping_navigateGroup">
           <insertTool refID="ProAddins_OpenStreetviewTool" size="large" />
-          <insertTool refID="ProAddins_ExternalViewerButton" size="large" />
         </updateGroup>
       </groups>
       <tabs>
         <updateTab refID="esri_mapping_homeTab">
           <insertGroup refID="ProAddins_FilterGroup" insert="after" />
+          <insertGroup refID="ProAddins_ViewerGroup" insert="after" placeWith="esri_mapping_navigateGroup"/>
         </updateTab>
       </tabs>
     </updateModule>
